@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Net.Pkcs11">
+      <HintPath>..\wrappers\C# pkcs11wrappers\pkcs11net\build\x86\Net.Pkcs11.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
