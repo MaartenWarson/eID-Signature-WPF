@@ -31,6 +31,8 @@ using Net.Sf.Pkcs11.Wrapper;
 
 using System.Security.Cryptography.X509Certificates;
 using Signature.Business.Exceptions;
+using System.IO;
+using System.Security.Cryptography;
 
 namespace Signature.Business
 {

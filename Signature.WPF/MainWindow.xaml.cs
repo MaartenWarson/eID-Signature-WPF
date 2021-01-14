@@ -27,6 +27,7 @@ namespace Signature.WPF
         private Integrity integrity;
         private string fullPathDummyPDF;
         private const string SIGN_LABEL = "Signature";
+        private byte[] certificateBytes;
 
         public MainWindow()
         {
@@ -76,7 +77,7 @@ namespace Signature.WPF
             try
             {
                 signedDataBytes = sign.DoSign(dummyPDFBytes, SIGN_LABEL);
-                byte[] certificateBytes = rd.GetCertificateSignatureFile();
+                certificateBytes = rd.GetCertificateSignatureFile();
 
                 integrity = new Integrity();
                 signedSuccessfully = integrity.Verify(dummyPDFBytes, signedDataBytes, certificateBytes);
@@ -104,6 +105,8 @@ namespace Signature.WPF
                 HideLoadingMessage();
                 lblConfirmation.Content = $"Digitaal getekend op {DateTime.Now}.";
                 lblConfirmation.Visibility = Visibility.Visible;
+
+                //SaveSignedFile(signedDataBytes);
             }
         }
 
@@ -122,6 +125,11 @@ namespace Signature.WPF
             {
                 Environment.Exit(0);
             }
+        }
+
+        private void SaveSignedFile(byte[] signedDataBytes)
+        {
+            File.WriteAllBytes("C:/PXL/Test.pdf", signedDataBytes);
         }
     }
 }
