@@ -1,6 +1,6 @@
 # eID_Signature
  
-In order to finish my bachelor program **Applied Computer Sience - Software Development** at **PXL Hogeschool Hasselt**, I was tasked to develop a web application for the school itself and to write a bachelor paper. In this paper I examined the legal and technical aspects to use the **Belgian Electronic ID** within an application.
+In order to finish my bachelor program **Applied Computer Sience - Software Development** at **PXL Hogeschool Hasselt**, I was tasked to develop a WPF application for the school itself and to write a bachelor paper. In this paper I examined the legal and technical aspects to use the **Belgian Electronic ID** within an application.
 
 For this research I also created a small **WPF Application** to investigate how a pdf-file could be **digitally signed** using the **eID**. This application can be found in this directory and can only be used with an eID from Belgium.
 
