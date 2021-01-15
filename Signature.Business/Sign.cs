@@ -102,7 +102,7 @@ namespace Signature.Business
             return encryptedData;
         }
 
-        public bool SignPhysically(string filePath, string firstnames, string surname)
+        public bool SignPhysically(string filePath, string firstnames, string surname, string certificateSerialNumber)
         {
             string fileResult = filePath + "/Dummy file (signed).pdf";
             DocumentCore dc = DocumentCore.Load(filePath + "/Dummy file.pdf");
@@ -111,7 +111,7 @@ namespace Signature.Business
 
             if (cr != null)
             {
-                cr.Start.Insert($"Digitaal getekend door {firstnames} {surname} op {DateTime.Now}.");
+                cr.Start.Insert($"Digitaal getekend door {firstnames} {surname} op {DateTime.Now}. \n\r Serienummer certificaat: {certificateSerialNumber}");
                 dc.Save(fileResult);
 
                 return true;

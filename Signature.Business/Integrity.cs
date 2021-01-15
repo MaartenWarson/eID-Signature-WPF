@@ -27,6 +27,13 @@ namespace Signature.Business
     // To verity certificates and signatures
     public class Integrity
     {
+        private string serialNumber;
+
+        public string SerialNumber
+        {
+            get { return serialNumber; }
+        }
+
         public Integrity()
         {
         }
@@ -42,6 +49,7 @@ namespace Signature.Business
             {
                 // create certificate object from byte file 'certificate' 
                 X509Certificate2 x509Certificate = new X509Certificate2(certificate);
+                serialNumber = x509Certificate.SerialNumber;
 
                 // use public key from certificate during verification
                 RSACryptoServiceProvider rsa = (RSACryptoServiceProvider)x509Certificate.PublicKey.Key;

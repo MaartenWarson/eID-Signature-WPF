@@ -97,10 +97,9 @@ namespace Signature.WPF
                 HideLoadingMessage();
             }
             
-            // Success message
             if (signedDataBytes != null && signedSuccessfully)
             {
-                signed = sign.SignPhysically(fullPath, firstnames, surname);
+                signed = sign.SignPhysically(fullPath, firstnames, surname, integrity.SerialNumber);
                 ReadPDF();
                 HideLoadingMessage();
 
