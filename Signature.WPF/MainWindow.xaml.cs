@@ -1,39 +1,28 @@
 ﻿using Signature.Business;
 using Signature.Business.Exceptions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.IO;
 
 namespace Signature.WPF
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private ReadData rd;
         private Integrity integrity;
-        private string fullPathDummyPDF;
+        private string fullPath;
+        private const string FILE_NAME = "/Dummy file.pdf";
         private const string SIGN_LABEL = "Signature";
         private byte[] certificateBytes;
+        private string firstnames;
+        private string surname;
+        private bool signed = false;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            fullPathDummyPDF = System.IO.Path.GetFullPath("./resources/Dummy file.pdf"); // in Signature.WPF/bin/Debug/resources
+            fullPath = System.IO.Path.GetFullPath("./resources"); // in Signature.WPF/bin/Debug/resources
             rd = new ReadData();
 
             ShowData();
@@ -44,8 +33,10 @@ namespace Signature.WPF
         {
             try
             {
-                lblSurname.Content = rd.GetSurname();
-                lblFirstnames.Content = rd.GetFirstnames();
+                firstnames = rd.GetFirstnames();
+                lblFirstnames.Content = firstnames;
+                surname = rd.GetSurname();
+                lblSurname.Content = surname;
                 lblGender.Content = rd.GetGender();
                 lblLocationOfBirth.Content = rd.GetLocationOfBirth();
                 lblDateOfBirth.Content = rd.GetDateOfBirth();
@@ -59,7 +50,14 @@ namespace Signature.WPF
 
         private void ReadPDF()
         {
-            pdfWebViewer.Navigate(fullPathDummyPDF);
+            if (!signed)
+            {
+                pdfWebViewer.Navigate(fullPath + FILE_NAME);
+            }
+            else
+            {
+                pdfWebViewer.Navigate(fullPath + "/Dummy file (signed).pdf");
+            }
         }
 
         private void btnSign_Click(object sender, RoutedEventArgs e)
@@ -70,7 +68,7 @@ namespace Signature.WPF
             lblLoading.Visibility = Visibility.Visible;
 
             Sign sign = new Sign();
-            byte[] dummyPDFBytes = File.ReadAllBytes(fullPathDummyPDF);
+            byte[] dummyPDFBytes = File.ReadAllBytes(fullPath + FILE_NAME);
             byte[] signedDataBytes = null;
             bool signedSuccessfully = false;
 
@@ -102,11 +100,16 @@ namespace Signature.WPF
             // Success message
             if (signedDataBytes != null && signedSuccessfully)
             {
+                signed = sign.SignPhysically(fullPath, firstnames, surname);
+                ReadPDF();
                 HideLoadingMessage();
-                lblConfirmation.Content = $"Digitaal getekend op {DateTime.Now}.";
-                lblConfirmation.Visibility = Visibility.Visible;
 
-                //SaveSignedFile(signedDataBytes);
+
+                if (signed)
+                {                
+                    lblConfirmation.Content = $"Digitaal getekend op {DateTime.Now}.";
+                    lblConfirmation.Visibility = Visibility.Visible;
+                }
             }
         }
 
@@ -125,11 +128,6 @@ namespace Signature.WPF
             {
                 Environment.Exit(0);
             }
-        }
-
-        private void SaveSignedFile(byte[] signedDataBytes)
-        {
-            File.WriteAllBytes("C:/PXL/Test.pdf", signedDataBytes);
         }
     }
 }

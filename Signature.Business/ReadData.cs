@@ -19,13 +19,10 @@
 **************************************************************************** */
 
 using System;
-using System.Collections.Generic;
 using System.Text;
-using System.Runtime.InteropServices;
 using Net.Sf.Pkcs11;
 using Net.Sf.Pkcs11.Objects;
 using Net.Sf.Pkcs11.Wrapper;
-using System.Security.Cryptography.X509Certificates;
 using Signature.Business.Exceptions;
 
 namespace Signature.Business

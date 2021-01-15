@@ -48,6 +48,14 @@
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
+            },
+            "iTextSharp": {
+              "target": "Package",
+              "version": "[5.5.13.2, )"
+            },
+            "sautinsoft.document": {
+              "target": "Package",
+              "version": "[5.0.10.23, )"
             }
           },
           "imports": [

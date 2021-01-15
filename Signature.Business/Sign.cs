@@ -1,7 +1,7 @@
 ﻿/* ****************************************************************************
 
  * eID Middleware Project.
- * Copyright (C) 2010-2016 FedICT.
+ * Copyright (C) 2010-2010 FedICT.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License version
@@ -19,20 +19,13 @@
 **************************************************************************** */
 
 using System;
-using System.Collections.Generic;
-
 using System.Text;
-
-using System.Runtime.InteropServices;
-
 using Net.Sf.Pkcs11;
 using Net.Sf.Pkcs11.Objects;
 using Net.Sf.Pkcs11.Wrapper;
-
-using System.Security.Cryptography.X509Certificates;
 using Signature.Business.Exceptions;
-using System.IO;
-using System.Security.Cryptography;
+using SautinSoft.Document;
+using System.Linq;
 
 namespace Signature.Business
 {
@@ -107,6 +100,24 @@ namespace Signature.Business
             }
 
             return encryptedData;
+        }
+
+        public bool SignPhysically(string filePath, string firstnames, string surname)
+        {
+            string fileResult = filePath + "/Dummy file (signed).pdf";
+            DocumentCore dc = DocumentCore.Load(filePath + "/Dummy file.pdf");
+
+            ContentRange cr = dc.Content.Find("_").FirstOrDefault();
+
+            if (cr != null)
+            {
+                cr.Start.Insert($"Digitaal getekend door {firstnames} {surname} op {DateTime.Now}.");
+                dc.Save(fileResult);
+
+                return true;
+            }
+
+            return false;
         }
     }
 }

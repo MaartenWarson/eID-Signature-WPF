@@ -16,7 +16,7 @@ C:\PXL\POC\eID-Signature-WPF\Signature.Business\bin\Debug\netstandard2.0\Net.Pkc
 C:\PXL\POC\eID-Signature-WPF\Signature.Business\obj\Debug\netstandard2.0\Signature.Business.csprojAssemblyReference.cache
 C:\PXL\POC\eID-Signature-WPF\Signature.Business\obj\Debug\netstandard2.0\Signature.Business.AssemblyInfoInputs.cache
 C:\PXL\POC\eID-Signature-WPF\Signature.Business\obj\Debug\netstandard2.0\Signature.Business.AssemblyInfo.cs
-C:\PXL\POC\eID-Signature-WPF\Signature.Business\obj\Debug\netstandard2.0\Signature.Business.csproj.CoreCompileInputs.cache
 C:\PXL\POC\eID-Signature-WPF\Signature.Business\obj\Debug\netstandard2.0\Signature.Business.csproj.CopyComplete
 C:\PXL\POC\eID-Signature-WPF\Signature.Business\obj\Debug\netstandard2.0\Signature.Business.dll
 C:\PXL\POC\eID-Signature-WPF\Signature.Business\obj\Debug\netstandard2.0\Signature.Business.pdb
+C:\PXL\POC\eID-Signature-WPF\Signature.Business\obj\Debug\netstandard2.0\Signature.Business.csproj.CoreCompileInputs.cache

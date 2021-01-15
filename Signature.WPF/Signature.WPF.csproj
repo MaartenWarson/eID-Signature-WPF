@@ -42,6 +42,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\wrappers\C# pkcs11wrappers\pkcs11net\build\x86\Net.Pkcs11.dll</HintPath>
     </Reference>
+    <Reference Include="SautinSoft.Document, Version=5.0.10.23, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\sautinsoft.document.5.0.10.23\lib\net47\SautinSoft.Document.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -93,6 +96,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

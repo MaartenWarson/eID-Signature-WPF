@@ -36,3 +36,5 @@ C:\PXL\POC\eID-Signature-WPF\Signature.WPF\obj\Debug\Signature.WPF.csproj.CoreCo
 C:\PXL\POC\eID-Signature-WPF\Signature.WPF\obj\Debug\Signature.WPF.csproj.CopyComplete
 C:\PXL\POC\eID-Signature-WPF\Signature.WPF\obj\Debug\Signature.WPF.exe
 C:\PXL\POC\eID-Signature-WPF\Signature.WPF\obj\Debug\Signature.WPF.pdb
+C:\PXL\POC\eID-Signature-WPF\Signature.WPF\bin\Debug\SautinSoft.Document.dll
+C:\PXL\POC\eID-Signature-WPF\Signature.WPF\bin\Debug\SautinSoft.Document.xml
